@@ -14,7 +14,7 @@ class Api::V1::AccountsController < ApplicationController
         end 
     end 
 
-    def show
+    def show 
         @account = Account.find(params[:id])
         render json: @account 
     end 

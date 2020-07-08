@@ -1,10 +1,10 @@
 class  Api::V1::PlantsController < ApplicationController
 
-    defore_action :set_account
+   before_action :set_account
 
     def index
-        @plant = Plants.all
-        render json: @plants
+      @plants = Plant.all 
+      render json: @plants
     end 
 
     def show
@@ -38,7 +38,7 @@ class  Api::V1::PlantsController < ApplicationController
     private 
 
     def set_account 
-        @account = Account.find(params[:account_id])
+       @account = Account.find(params[:account_id])
     end 
 
     def plant_params 
