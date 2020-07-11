@@ -4,7 +4,7 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.integer :account_id
       t.string :name
       t.float :price
-      t.string :root
+      t.string :kind
       t.string :description
       t.datetime :date
 

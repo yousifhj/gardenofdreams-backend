@@ -42,7 +42,7 @@ class  Api::V1::PlantsController < ApplicationController
     end 
 
     def plant_params 
-        params.require(:plant).permit(:price, :account_id, :root, :date, :description)
+        params.require(:plant).permit(:price, :account_id, :kind, :date, :description)
     end 
 
 end 

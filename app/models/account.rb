@@ -3,10 +3,10 @@ class Account < ApplicationRecord
     validates :name, :balance, presence: true 
 
     def update_balance(plants)
-        if plant.root == "gift"
+        if plant.kind == "gift"
             self.balance = self.balance + plant.price
             self.save 
-        elsif plant.root == 'gifted'
+        elsif plant.kind == 'gifted'
            if self.balance >= plant.price
             self.balance = self.balance - plant.price
             self.save

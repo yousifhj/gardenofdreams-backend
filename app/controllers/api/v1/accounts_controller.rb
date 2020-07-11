@@ -2,7 +2,8 @@ class Api::V1::AccountsController < ApplicationController
 
     def index
         @accounts = Account.all 
-        render Json: @accounts 
+        puts @accounts.to_json
+        render json: @accounts 
     end 
 
     def create 

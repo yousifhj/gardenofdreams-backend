@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_07_02_055001) do
     t.integer "account_id"
     t.string "name"
     t.float "price"
-    t.string "root"
+    t.string "kind"
     t.string "description"
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
