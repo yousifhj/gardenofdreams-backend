@@ -2,7 +2,7 @@ class Account < ApplicationRecord
     has_many :plants
     validates :name, :balance, presence: true 
 
-    def update_balance(plants)
+    def update_balance(plant)
         if plant.kind == "gift"
             self.balance = self.balance + plant.price
             self.save 

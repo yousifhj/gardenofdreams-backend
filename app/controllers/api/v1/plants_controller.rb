@@ -13,13 +13,18 @@ class  Api::V1::PlantsController < ApplicationController
     end 
 
     def create 
-        @plant = @account.plant.new(plant_params)
-
-        @plant.date = DateTime.now
+      puts params.to_json
+      puts plant_params.to_json
+        @plant = @account.plants.new(plant_params)
         if @account.update_balance(@plant) != 'Balance too low.'
-          @plant.save
+          unless @plant.save
+            puts @plant.errors.full_messages
+          end
+          
           render json: @account
         else
+          puts @account.errors.full_messages
+          puts "balance error"
           render json: {error: 'Balance too low'}
         end
     end
@@ -42,7 +47,7 @@ class  Api::V1::PlantsController < ApplicationController
     end 
 
     def plant_params 
-        params.require(:plant).permit(:price, :account_id, :kind, :date, :description)
+        params.require(:plant).permit(:name, :price, :account_id, :kind, :date, :description)
     end 
 
 end 
