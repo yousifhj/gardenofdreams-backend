@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-account = Account.create(name: 'Checking', balance: 1000)
+account = Account.create(name: 'Pathos', balance: 1000)
 
-plant = Plant.create(account_id: 1, name: 'fiddleleaf', price: 34, kind: 'gift',  date: DateTime.now, description: 'beautiful, tall grren plant that will beautify a room')
+plant = Plant.create(account_id: 1, name: 'Marble Pathos', price: 34, kind: 'gift',  date: DateTime.now, description: 'beautiful, grren plant that will beautify a room')
 
-plant_two = Plant.create(account_id: 1, name: 'chinese evergreen', price: 40, kind: 'gifted', date: DateTime.now, description: 'gorgeous plant popular in homes and offices')
+plant_two = Plant.create(account_id: 1, name: 'Silver Lady', price: 40, kind: 'gifted', date: DateTime.now, description: 'gorgeous plant popular in homes and offices')
