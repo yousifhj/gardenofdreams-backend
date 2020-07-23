@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :accounts do 
         resources :plants
-      end 
+      end
+      get "plants/:id" => "plants#show"
+      put "plants/:id" => "plants#update"
     end 
   end 
 
