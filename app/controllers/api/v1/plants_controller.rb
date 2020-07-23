@@ -1,6 +1,6 @@
 class  Api::V1::PlantsController < ApplicationController
 
-   before_action :set_account
+   before_action :set_account, only: [:create]
 
     def index
       @plants = Plant.all 
@@ -13,31 +13,33 @@ class  Api::V1::PlantsController < ApplicationController
     end 
 
     def create 
-      puts params.to_json
-      puts plant_params.to_json
-        @plant = @account.plants.new(plant_params)
-        if @account.update_balance(@plant) != 'Balance too low.'
-          unless @plant.save
-            puts @plant.errors.full_messages
-          end
-          
-          render json: @account
-        else
-          puts @account.errors.full_messages
-          puts "balance error"
-          render json: {error: 'Balance too low'}
-        end
+      @plant = @account.plants.new(plant_params)
+      if @account.update_balance(@plant) != 'Balance too low.'
+        @plant.save
+        render json: @account
+      else
+        render json:{error:'Balance too low'}
+      end 
+    end
+
+    def update
+      @plant = Plant.find(params[:id])
+      if @plant.update(plant_params)
+        render json: @plant
+      else
+        render json:{error: @plant.errors.full_messages}, status: 400
+      end
     end
 
     def destroy 
-        @plant = Plant.find(params["id"])
-        @account = Account.find(@plant.account_id)
-        if @account.update_balance_on_delete(@plant)
-          @plant.destroy
-          render json: @account
-        else
-          render json: {error: 'Balance too low'}
-        end
+      @plant = Plant.find(params["id"])
+      @account = Account.find(@plant.account_id)
+      if @account.update_balance_on_delete(@plant)
+        @plant.destroy
+        render json: @account
+      else
+        render json: {error: 'Balance too low'}
+      end
     end 
 
     private 
