@@ -31,6 +31,7 @@ $ rake db:seed
 $ rails s
 ```
 
+## clone ans install gardenofdreams-frontend for rest of project
 
 ## License
 
