@@ -1,25 +1,37 @@
-# README
+# GardenofDreams-backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Plant app that allows user to keep track of monetary accounts created for purchasing and gifting plants.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+### Fork and clone repo
+```
+$ git clone https://github.com/yousifhj/gardenofdreams-backend
+```
 
-* System dependencies
+### Execute for dependencies
+```
+$ bundle install
+```
 
-* Configuration
+### Seed database
+```
+$ rake db:migrate
+```
 
-* Database creation
 
-* Database initialization
+### Seed data
+```
+$ rake db:seed
+```
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Startup the server
+```
+$ rails s
+```
 
-* Deployment instructions
 
-* ...
-# Garden-of-Dreams
+## License
+
+Copyright (c) 2019, Huda Yousif
